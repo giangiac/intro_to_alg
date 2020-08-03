@@ -30,10 +30,9 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 ################################################################################
 
 # Link against gtest or gtest_main as needed.
-add_executable(utest suite_of_tests.cpp
-               ../src/heap.cpp)
+add_executable(utest suite_of_tests.cpp)
 target_include_directories(utest PRIVATE include)
-target_link_libraries(utest PRIVATE gtest_main)
+target_link_libraries(utest PRIVATE gtest_main i2a)
 
 ################################################################################
 

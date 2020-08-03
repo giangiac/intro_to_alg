@@ -22,26 +22,34 @@ class Heap
 {
   private:
 
-    std::vector<Type> A_;
     bool is_max_heap_ = true;	// the alternative being a min_heap
-    std::size_t heap_size_ = 0;
+    std::vector<Type> A_;
 
   public:
 
+    // Creators and annihilators.
     Heap(std::string style = "max");
     Heap(std::vector<Type> A, std::string style = "max");
     ~Heap() {}
 
-    // Return basic info
+    // Return basic info or members.
     bool IsMaxHeap() const {return is_max_heap_;}
     bool IsMinHeap() const {return ~is_max_heap_;}
+    std::vector<Type> & A() {return A_;}
+    std::size_t HeapSize() const {return A_.size();}
+
+    // Print the heap.
+    void Print() const;
 
     // Enforce the heap property on index i assuming that Left(i) and Right(i) are roots of heaps.
     // Implemented with recursion: one can avoid it using for loop.
+    // Run in O(log heap_size)
     void Heapify(std::size_t i);
 
     // Order the elements of A_ to form a heap.
+    // Run in O(heap_size)
     void BuildHeap();
+    void BuildHeap(std::vector<Type> A_new) {A_=A_new; this->BuildHeap();}
 
   private:
 

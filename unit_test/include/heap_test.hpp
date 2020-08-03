@@ -3,6 +3,8 @@
 
 #include "../../include/heap.hpp"
 
+#include <vector>
+
 //////////////////////////////////////////////////////////////////////////////
 // Test fixture class: heap
 //////////////////////////////////////////////////////////////////////////////
@@ -24,9 +26,22 @@ class HeapTest : public ::testing::Test
 //////////////////////////////////////////////////////////////////////////////
 // Test macros:
 
-TEST_F(HeapTest, Creator)
+TEST_F(HeapTest, Create)
 {
   Heap<int> heap("max");
+  ASSERT_TRUE(heap.IsMaxHeap());
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+TEST_F(HeapTest, Build)
+{
+  Heap<int> heap("max");
+  std::vector<int> B = {4, 7, 1, 9, 8, 2, 16, 3, 10, 14};
+  heap.BuildHeap(B);
+
+  heap.Print(); 
+ 
   ASSERT_TRUE(heap.IsMaxHeap());
 }
 
