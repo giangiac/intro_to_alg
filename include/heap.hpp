@@ -32,6 +32,10 @@ class Heap
     Heap(std::vector<Type> A, std::string style = "max");
     ~Heap() {}
 
+    // Return basic info
+    bool IsMaxHeap() const {return is_max_heap_;}
+    bool IsMinHeap() const {return ~is_max_heap_;}
+
     // Enforce the heap property on index i assuming that Left(i) and Right(i) are roots of heaps.
     // Implemented with recursion: one can avoid it using for loop.
     void Heapify(std::size_t i);
