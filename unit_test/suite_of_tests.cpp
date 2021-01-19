@@ -14,6 +14,7 @@ ASSERT_NEAR(val1.imag(),val2.imag(),error);
 // Headers with the implementation of the various tests.
 #include "include/compiler_flags_test.hpp"
 #include "include/heap_test.hpp"
+#include "include/heapsort_test.hpp"
 
 //////////////////////////////////////////////////////////////////////////////
 // main
