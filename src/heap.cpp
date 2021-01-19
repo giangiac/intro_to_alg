@@ -5,6 +5,8 @@
 #include <algorithm>    // std::swap
 #include <iostream>
 
+namespace i2a {
+
 ////////////////////////////////////////////////////////////////////
 
 template <class Type>
@@ -65,7 +67,7 @@ void Heap<Type>::BuildHeap()
   //
   for (std::size_t i=A_.size()/2; i>0; --i)
   {
-std::cout << "i = " << i << " --> A[i] = " << A_[i] << "\n";
+      //std::cout << "i = " << i << " --> A[i] = " << A_[i] << "\n";
       this->Heapify(i);
   }
   this->Heapify(0);
@@ -94,3 +96,7 @@ void Heap<Type>::Print() const
 
 template class Heap<int>;
 template class Heap<double>;
+
+} // close namesapce i2a
+
+////////////////////////////////////////////////////////////////////

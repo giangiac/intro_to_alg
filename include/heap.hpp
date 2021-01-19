@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+namespace i2a {
+
 /// @class Heap Binary heap, either max or min.
 /// 
 /// Example of indices for the tree:
@@ -41,7 +43,8 @@ class Heap
     // Print the heap.
     void Print() const;
 
-    // Enforce the heap property on index i assuming that Left(i) and Right(i) are roots of heaps.
+    // Enforce the heap property on the subtree roted at index i.
+    // It assumes that Left(i) and Right(i) are roots of heaps.
     // Implemented with recursion: one can avoid it using for loop.
     // Run in O(log heap_size)
     void Heapify(std::size_t i);
@@ -62,5 +65,7 @@ class Heap
     std::size_t Right (std::size_t i) { return (i+1) << 1 ; }
 
 };
+
+} // close namespace i2a
 
 #endif	// head guards I2A_HEAP_HPP
